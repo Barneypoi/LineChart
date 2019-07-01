@@ -3,6 +3,7 @@ package com.example.test;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.OkHttpClient;
@@ -84,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     //获取到json数据中里的activity数组内容
                     JSONArray resultJsonArray = new JSONArray(date);
                     //遍历
-                    for(int i=0;i<resultJsonArray.length();i++){
+                    for(int i=4241;i<resultJsonArray.length();i++){
                         object=resultJsonArray.getJSONObject(i);
 
                         Map<String, Object> map=new HashMap<String, Object>();
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                             map.put("po", shijian);
                             //ArrayList集合
                             list.add(map);
+
 
                         } catch (JSONException e) {
                             // TODO Auto-generated catch block
@@ -186,5 +189,11 @@ public class MainActivity extends AppCompatActivity {
         TextView textView;
         TextView shijian;
     }
+    public  void jump(View view){
+        Intent intent = new Intent(this, ShowActivity.class);
+        intent.putExtra("key",list);
+        startActivity(intent);
+    }
+
 
 }
