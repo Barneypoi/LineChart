@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     //获取到json数据中里的activity数组内容
                     JSONArray resultJsonArray = new JSONArray(date);
                     //遍历
-                    for(int i=4241;i<resultJsonArray.length();i++){
+                    for(int i=0;i<resultJsonArray.length();i++){
                         object=resultJsonArray.getJSONObject(i);
 
                         Map<String, Object> map=new HashMap<String, Object>();
