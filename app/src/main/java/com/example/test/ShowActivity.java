@@ -1,5 +1,6 @@
 package com.example.test;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,7 +36,8 @@ public class ShowActivity extends AppCompatActivity {
         //准备好每个点对应的x轴数值
         List<String> list = new ArrayList<>();
         for (int i = 0; i < mainlist.size(); i++) {
-            list.add(TimeStamp2Date((String) mainlist.get(i).get("1")));
+            String d = TimeStamp2Date((String) mainlist.get(i).get("1"));
+            list.add(d);
         }
         XAxis xAxis = mLineChart.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(list));
@@ -50,7 +53,6 @@ public class ShowActivity extends AppCompatActivity {
         Description desc= new Description();
         desc.setText("");
         mLineChart.setDescription(desc);
-
     }
     public String TimeStamp2Date(String timestampString){
         Long timestamp = Long.parseLong(timestampString);

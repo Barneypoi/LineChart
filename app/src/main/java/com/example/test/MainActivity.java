@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public JSONObject object;
     public ListView lv;
     public ArrayList<Map<String, Object>> list=new ArrayList<Map<String,Object>>();
+    public String start;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             //获取到json数据中的activity数组里的内容name
                             String name = object.getString("1");
+                            if(i==0){
+                                start=name;
+                            }
                             //获取到json数据中的activity数组里的内容startTime
                             String shijian=object.getString("po");
                             //存入map
@@ -193,6 +197,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ShowActivity.class);
         intent.putExtra("key",list);
         startActivity(intent);
+        Intent intent1 = new Intent(MainActivity.this,DetailsMarkerView.class);
+        DetailsMarkerView.a=start;
     }
 
 
